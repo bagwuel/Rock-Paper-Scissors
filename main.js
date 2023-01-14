@@ -4,6 +4,26 @@ function getComputerChoice () {
     return (choice);
 }
 
+function playerChoice () {
+    while (true) {
+        let playerSelection = prompt("Enter rock, paper or scissors: ");
+        if (playerSelection === null) 
+            return null;
+
+        if (playerSelection === ""){
+            console.log("input a choice");
+        }
+        else{
+            playerSelection = playerSelection.toLowerCase();
+            if (playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors")
+                console.log("That is a wrong choice")
+            else
+                return (playerSelection);
+        }
+          
+    }
+}
+
 function playRound (playerSelection, computerSelection) {
     if (playerSelection === computerSelection) 
         return ("draw")
@@ -15,33 +35,24 @@ function playRound (playerSelection, computerSelection) {
         return ("loose")
 }
 
-
-
 function game () {
     let computerScore = 0;
     let playerScore = 0;
     for (let i = 0; i < 5; i++) {
-        let playerSelection = prompt("Enter rock, paper or scissors: ");
-        let computerSelection = getComputerChoice();
-       
-        if (playerSelection){
-            playerSelection = playerSelection.toLowerCase();
-        }
-        else{
-            console.log("You did not select anything isi aki")
+        let playerSelection = playerChoice();
+        if (playerSelection === null) {
+            console.log("You dont want to play")
             return;
         }
-           
+        let computerSelection = getComputerChoice(); 
         let winner = playRound(playerSelection, computerSelection);
        
         console.log(winner);
 
         if (winner === "win")
             playerScore += 1;
-
         if (winner === "loose")
             computerScore += 1;
-
     }
 
     if (computerScore === playerScore)
@@ -49,7 +60,7 @@ function game () {
     else if (computerScore > playerScore)
         console.log("Sorry try again")
     else
-        console.log("Congratulations You win!")
+        console.log("Congratulations You won!")
 }
 
 game()
