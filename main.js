@@ -49,15 +49,15 @@ function playRound () {
     let computerSelection = getComputerChoice();
     computerSelection = hardMode(playerSelection);
     if (playerSelection === computerSelection) 
-        display.textContent = "A draw";
+        display.textContent = "A draw You have 0 point";
     else if (((playerSelection === "rock") && (computerSelection === "scissors")) 
         || ((playerSelection === "paper") && (computerSelection === "rock")) 
         || ((playerSelection === "scissors") && (computerSelection === "paper"))){
-            display.textContent = 'You win!';
+            display.textContent = 'You won this round 1 point!';
             playerScore += 1;
     }
     else {
-        display.textContent = 'You loose!';
+        display.textContent = 'You lost this round 0 point!';
         computerScore += 1;
     }
     pScore.textContent = playerScore;
