@@ -45,8 +45,9 @@ function gameReplay() {
 // }
 
 function playRound () {
-    let computerSelection = getComputerChoice();
     let playerSelection = this.value.toLowerCase()
+    let computerSelection = getComputerChoice();
+    computerSelection = hardMode(playerSelection);
     if (playerSelection === computerSelection) 
         display.textContent = "A draw";
     else if (((playerSelection === "rock") && (computerSelection === "scissors")) 
@@ -76,6 +77,15 @@ function winner(playerScore, computerScore) {
         return ('Oh no! You lost the Game!');
     }
 } 
+
+function hardMode(playerSelection) {
+    if (playerSelection === 'rock')
+        return 'paper';
+    else if (playerSelection === 'paper')
+        return 'scissors';
+    else
+        return 'rock';
+}
 
 // function game () {
 //     let computerScore = 0;
