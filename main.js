@@ -47,7 +47,7 @@ function gameReplay() {
 function playRound () {
     let playerSelection = this.value.toLowerCase()
     let computerSelection = getComputerChoice();
-    computerSelection = hardMode(playerSelection);
+    // computerSelection = hardMode(playerSelection);
     if (playerSelection === computerSelection) 
         display.textContent = "A draw You have 0 point";
     else if (((playerSelection === "rock") && (computerSelection === "scissors")) 
